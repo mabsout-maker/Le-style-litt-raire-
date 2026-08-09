@@ -1,1 +1,488 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>Le Style Littéraire</title>
+
+  <meta name="description" content="Le Style Littéraire — Romans, poésie, résumés et explications littéraires.">
+  <meta name="theme-color" content="#111111">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      background: #0b0b0d;
+      color: #f4f1e8;
+      line-height: 1.7;
+    }
+
+    header {
+      min-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 40px 20px;
+      background:
+        radial-gradient(circle at center, #29231d 0%, #11100f 45%, #050505 100%);
+    }
+
+    .logo {
+      width: 150px;
+      height: 150px;
+      object-fit: contain;
+      margin-bottom: 25px;
+      filter: drop-shadow(0 0 18px rgba(255,255,255,0.15));
+    }
+
+    header h1 {
+      font-size: clamp(42px, 9vw, 82px);
+      letter-spacing: 2px;
+      font-weight: normal;
+    }
+
+    header p {
+      margin-top: 15px;
+      font-size: 19px;
+      color: #c9c3b8;
+      max-width: 650px;
+    }
+
+    .buttons {
+      margin-top: 30px;
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 22px;
+      border: 1px solid #777;
+      border-radius: 30px;
+      color: white;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .button:hover {
+      background: white;
+      color: black;
+      transform: translateY(-2px);
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(8,8,8,0.95);
+      border-bottom: 1px solid #292929;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 12px;
+      gap: 22px;
+    }
+
+    nav a {
+      color: #ddd;
+      text-decoration: none;
+      font-size: 15px;
+    }
+
+    nav a:hover {
+      color: white;
+    }
+
+    section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 80px 20px;
+    }
+
+    .title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .title h2 {
+      font-size: 38px;
+      font-weight: normal;
+    }
+
+    .title p {
+      color: #aaa;
+      margin-top: 8px;
+    }
+
+    .search {
+      max-width: 600px;
+      margin: 0 auto 40px;
+    }
+
+    .search input {
+      width: 100%;
+      padding: 15px 20px;
+      border-radius: 30px;
+      border: 1px solid #444;
+      background: #151515;
+      color: white;
+      font-size: 16px;
+      outline: none;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      background: linear-gradient(145deg, #191919, #101010);
+      border: 1px solid #292929;
+      border-radius: 14px;
+      padding: 28px;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: #666;
+    }
+
+    .card h3 {
+      font-size: 23px;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #aaa;
+    }
+
+    .card a {
+      display: inline-block;
+      margin-top: 18px;
+      color: white;
+      text-decoration: none;
+      border-bottom: 1px solid #777;
+    }
+
+    .anime {
+      background:
+        linear-gradient(rgba(0,0,0,0.78), rgba(0,0,0,0.9)),
+        radial-gradient(circle at 80% 30%, #44372b, #080808 60%);
+      border-top: 1px solid #222;
+      border-bottom: 1px solid #222;
+    }
+
+    .youtube,
+    .whatsapp {
+      text-align: center;
+    }
+
+    .social-box {
+      max-width: 700px;
+      margin: auto;
+      background: #151515;
+      border: 1px solid #292929;
+      border-radius: 18px;
+      padding: 40px 25px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      border-top: 1px solid #222;
+      color: #888;
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        min-height: 80vh;
+      }
+
+      section {
+        padding: 60px 18px;
+      }
+
+      .title h2 {
+        font-size: 30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header id="accueil">
+
+    <!-- Ton logo -->
+    <img src="logo.png" alt="Logo Le Style Littéraire" class="logo">
+
+    <h1>Le Style Littéraire</h1>
+
+    <p>
+      Romans, poésie, résumés et explications littéraires.
+      Découvrez la littérature autrement.
+    </p>
+
+    <div class="buttons">
+      <a class="button" href="#romans">Découvrir</a>
+      <a class="button" href="https://youtube.com/@lestylelitteraire?si=nArEJFBJf3bS7BQP" target="_blank">
+        YouTube
+      </a>
+      <a class="button" href="https://whatsapp.com/channel/0029Vb8aJwk7IUYcv6oxLt2N" target="_blank">
+        WhatsApp
+      </a>
+    </div>
+
+  </header>
+
+  <nav>
+    <a href="#accueil">Accueil</a>
+    <a href="#romans">Romans</a>
+    <a href="#poesie">Poésie</a>
+    <a href="#analyses">Analyses</a>
+    <a href="#recherche">Recherche</a>
+    <a href="#communaute">Communauté</a>
+  </nav>
+
+  <main>
+
+    <section id="recherche">
+
+      <div class="title">
+        <h2>Recherche</h2>
+        <p>Trouvez un roman, un auteur ou un thème littéraire.</p>
+      </div>
+
+      <div class="search">
+        <input
+          type="search"
+          id="searchInput"
+          placeholder="Rechercher dans Le Style Littéraire..."
+          onkeyup="searchContent()"
+        >
+      </div>
+
+      <div class="cards" id="searchResults">
+
+        <article class="card searchable">
+          <h3>Romans</h3>
+          <p>Découvrez des œuvres célèbres et leurs histoires.</p>
+        </article>
+
+        <article class="card searchable">
+          <h3>Poésie</h3>
+          <p>Explorez les grands textes et les univers poétiques.</p>
+        </article>
+
+        <article class="card searchable">
+          <h3>Analyse littéraire</h3>
+          <p>Comprenez les thèmes, les personnages et les messages des œuvres.</p>
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <section id="romans">
+
+      <div class="title">
+        <h2>📚 Romans</h2>
+        <p>Lire, comprendre et découvrir les grandes œuvres.</p>
+      </div>
+
+      <div class="cards">
+
+        <article class="card">
+          <h3>Résumés de romans</h3>
+          <p>
+            Des résumés simples et accessibles pour comprendre rapidement
+            l'histoire et les événements essentiels.
+          </p>
+          <a href="#">Explorer →</a>
+        </article>
+
+        <article class="card">
+          <h3>Personnages</h3>
+          <p>
+            Découvrez les personnages principaux, leurs relations,
+            leurs motivations et leur évolution.
+          </p>
+          <a href="#">Explorer →</a>
+        </article>
+
+        <article class="card">
+          <h3>Thèmes</h3>
+          <p>
+            Amour, mort, liberté, solitude, société, pouvoir et bien plus.
+          </p>
+          <a href="#">Explorer →</a>
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <section id="poesie" class="anime">
+
+      <div class="title">
+        <h2>✒️ Poésie</h2>
+        <p>Les mots, les émotions et la beauté du langage.</p>
+      </div>
+
+      <div class="cards">
+
+        <article class="card">
+          <h3>Poèmes</h3>
+          <p>
+            Découvrez des poèmes et plongez dans leurs univers.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Poètes</h3>
+          <p>
+            Découvrez les auteurs qui ont marqué l'histoire de la poésie.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Explications</h3>
+          <p>
+            Comprenez les images, symboles et émotions cachés derrière les vers.
+          </p>
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <section id="analyses">
+
+      <div class="title">
+        <h2>🔎 Explications littéraires</h2>
+        <p>Comprendre les œuvres au-delà de leur histoire.</p>
+      </div>
+
+      <div class="cards">
+
+        <article class="card">
+          <h3>Analyse d'œuvres</h3>
+          <p>
+            Une approche claire des œuvres littéraires et de leurs idées.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Analyse des personnages</h3>
+          <p>
+            Comprendre leur psychologie, leurs choix et leur rôle dans l'histoire.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Symboles et messages</h3>
+          <p>
+            Découvrir les significations cachées et les grandes idées des auteurs.
+          </p>
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <section id="communaute" class="anime">
+
+      <div class="title">
+        <h2>💬 La communauté</h2>
+        <p>La littérature est encore plus belle lorsqu'elle est partagée.</p>
+      </div>
+
+      <div class="social-box">
+
+        <h3>Partagez vos textes</h3>
+
+        <p>
+          Vous écrivez un poème, une histoire ou un texte littéraire ?
+          Vous pourrez prochainement le partager avec la communauté
+          du Style Littéraire.
+        </p>
+
+        <div class="buttons">
+
+          <a
+            class="button"
+            href="https://youtube.com/@lestylelitteraire?si=nArEJFBJf3bS7BQP"
+            target="_blank">
+            Ma chaîne YouTube
+          </a>
+
+          <a
+            class="button"
+            href="https://whatsapp.com/channel/0029Vb8aJwk7IUYcv6oxLt2N"
+            target="_blank">
+            Ma chaîne WhatsApp
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <footer>
+    <p>© 2026 — Le Style Littéraire</p>
+    <p>Romans • Poésie • Analyse • Culture littéraire</p>
+  </footer>
+
+
+  <script>
+    function searchContent() {
+
+      const input = document
+        .getElementById("searchInput")
+        .value
+        .toLowerCase();
+
+      const cards = document.querySelectorAll(".searchable");
+
+      cards.forEach(card => {
+
+        const text = card.innerText.toLowerCase();
+
+        if (text.includes(input)) {
+          card.style.display = "";
+        } else {
+          card.style.display = "none";
+        }
+
+      });
+
+    }
+  </script>
+
+</body>
+  </html>
