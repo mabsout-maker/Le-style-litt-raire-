@@ -6,401 +6,564 @@
 
 <title>Le Style Littéraire</title>
 
-<meta name="description" content="Le Style Littéraire — Romans, poésie, analyses et culture littéraire.">
+<meta name="description" content="Le Style Littéraire — Romans, poésie, analyses, résumés et culture littéraire.">
 
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
+
+/* =========================
+   BASE
+========================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-html{
-  scroll-behavior:smooth;
+html {
+    scroll-behavior: smooth;
 }
 
-body{
-  background:#050505;
-  color:#f4f0e8;
-  font-family:Georgia,"Times New Roman",serif;
-  line-height:1.7;
+body {
+    background: #050505;
+    color: #f2eee5;
+    font-family: Georgia, "Times New Roman", serif;
+    line-height: 1.7;
 }
 
-/* NAVIGATION */
-
-header{
-  position:sticky;
-  top:0;
-  z-index:100;
-  background:rgba(5,5,5,.94);
-  backdrop-filter:blur(12px);
-  border-bottom:1px solid #292929;
-  padding:12px 20px;
+a {
+    color: inherit;
 }
 
-.nav{
-  max-width:1200px;
-  margin:auto;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:20px;
+/* =========================
+   NAVIGATION
+========================= */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(5, 5, 5, 0.92);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid #29251f;
 }
 
-.logo-small{
-  width:55px;
-  height:55px;
-  object-fit:contain;
+.navbar {
+    max-width: 1250px;
+    margin: auto;
+    min-height: 78px;
+    padding: 10px 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
 }
 
-nav{
-  display:flex;
-  flex-wrap:wrap;
-  gap:20px;
-  justify-content:center;
+.nav-logo {
+    width: 58px;
+    height: 58px;
+    object-fit: contain;
 }
 
-nav a{
-  color:#ddd;
-  text-decoration:none;
-  font-size:14px;
-  transition:.3s;
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 22px;
 }
 
-nav a:hover{
-  color:#c9a96a;
+nav a {
+    color: #cfcac0;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
 }
 
-/* ACCUEIL */
-
-.hero{
-  min-height:92vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:80px 20px;
-  background:
-    radial-gradient(circle at center,#211c16 0%,#0c0c0c 42%,#000 100%);
+nav a:hover {
+    color: #c9a96a;
 }
 
-.hero-content{
-  max-width:900px;
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 92vh;
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+    padding: 90px 20px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(72, 57, 38, 0.35) 0%,
+            rgba(20, 18, 15, 0.4) 30%,
+            #050505 72%
+        );
+
+    overflow: hidden;
 }
 
-.hero-logo{
-  width:180px;
-  height:180px;
-  object-fit:contain;
-  margin-bottom:25px;
-  filter:drop-shadow(0 0 30px rgba(255,255,255,.12));
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    border: 1px solid rgba(201, 169, 106, 0.08);
+    animation: pulse 7s infinite ease-in-out;
 }
 
-.small-title{
-  color:#c9a96a;
-  letter-spacing:4px;
-  font-size:12px;
-  margin-bottom:15px;
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 950px;
 }
 
-.hero h1{
-  font-size:clamp(48px,9vw,95px);
-  font-weight:normal;
-  line-height:1;
+.hero-logo {
+    width: 190px;
+    height: 190px;
+    object-fit: contain;
+    margin-bottom: 25px;
+    filter: drop-shadow(0 0 35px rgba(255,255,255,0.12));
+    animation: floating 5s infinite ease-in-out;
 }
 
-.hero h1 span{
-  color:#c9a96a;
-  font-style:italic;
+.eyebrow {
+    color: #c9a96a;
+    font-size: 12px;
+    letter-spacing: 5px;
+    margin-bottom: 18px;
 }
 
-.hero p{
-  max-width:700px;
-  margin:25px auto;
-  color:#aaa;
-  font-size:19px;
+.hero h1 {
+    font-size: clamp(50px, 9vw, 100px);
+    font-weight: normal;
+    line-height: 0.98;
 }
 
-.buttons{
-  display:flex;
-  justify-content:center;
-  flex-wrap:wrap;
-  gap:12px;
-  margin-top:30px;
+.hero h1 span {
+    color: #c9a96a;
+    font-style: italic;
 }
 
-.button{
-  display:inline-block;
-  padding:12px 23px;
-  border:1px solid #555;
-  border-radius:30px;
-  color:white;
-  text-decoration:none;
-  transition:.3s;
+.hero-description {
+    max-width: 720px;
+    margin: 30px auto;
+    color: #a7a29a;
+    font-size: 18px;
 }
 
-.button:hover{
-  background:#c9a96a;
-  color:#000;
-  border-color:#c9a96a;
-  transform:translateY(-3px);
+.buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 13px;
+    margin-top: 30px;
 }
 
-/* SECTIONS */
+.button {
+    display: inline-block;
+    padding: 12px 25px;
 
-section{
-  max-width:1200px;
-  margin:auto;
-  padding:100px 25px;
+    border: 1px solid #555;
+    border-radius: 30px;
+
+    color: #f4f0e8;
+    text-decoration: none;
+
+    transition: 0.3s;
 }
 
-.section-title{
-  text-align:center;
-  margin-bottom:50px;
+.button:hover {
+    background: #c9a96a;
+    color: #050505;
+    border-color: #c9a96a;
+    transform: translateY(-3px);
 }
 
-.section-title small{
-  color:#c9a96a;
-  letter-spacing:3px;
+.button.gold {
+    background: #c9a96a;
+    color: #050505;
+    border-color: #c9a96a;
 }
 
-.section-title h2{
-  font-size:48px;
-  font-weight:normal;
-  margin:10px 0;
+.button.gold:hover {
+    background: transparent;
+    color: #c9a96a;
 }
 
-.section-title p{
-  color:#999;
+/* =========================
+   SECTIONS
+========================= */
+
+section {
+    max-width: 1250px;
+    margin: auto;
+    padding: 105px 25px;
 }
 
-/* RECHERCHE */
-
-.search-box{
-  max-width:700px;
-  margin:0 auto 50px;
+.section-heading {
+    text-align: center;
+    margin-bottom: 55px;
 }
 
-.search-box input{
-  width:100%;
-  padding:17px 22px;
-  border-radius:40px;
-  border:1px solid #444;
-  background:#111;
-  color:white;
-  font-size:17px;
-  outline:none;
+.section-heading small {
+    color: #c9a96a;
+    letter-spacing: 4px;
+    font-size: 11px;
 }
 
-.search-box input:focus{
-  border-color:#c9a96a;
+.section-heading h2 {
+    margin: 10px 0;
+    font-size: clamp(38px, 6vw, 58px);
+    font-weight: normal;
 }
 
-/* CARTES */
-
-.cards{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:25px;
+.section-heading p {
+    max-width: 650px;
+    margin: auto;
+    color: #888;
 }
 
-.card{
-  background:linear-gradient(145deg,#151515,#090909);
-  border:1px solid #292929;
-  border-radius:15px;
-  overflow:hidden;
-  transition:.4s;
+/* =========================
+   CARTES
+========================= */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 28px;
 }
 
-.card:hover{
-  transform:translateY(-7px);
-  border-color:#76603b;
-  box-shadow:0 20px 50px rgba(0,0,0,.5);
+.card {
+    background: linear-gradient(145deg, #171717, #090909);
+    border: 1px solid #292929;
+    border-radius: 16px;
+    overflow: hidden;
+
+    transition: 0.4s;
 }
 
-.card-image{
-  position:relative;
-  width:100%;
-  aspect-ratio:16/9;
-  overflow:hidden;
-  background:#000;
+.card:hover {
+    transform: translateY(-8px);
+    border-color: #75603c;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.55);
 }
 
-.card-image img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  transition:.5s;
+.card-image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: #000;
 }
 
-.card:hover .card-image img{
-  transform:scale(1.05);
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.6s;
 }
 
-.play{
-  position:absolute;
-  right:15px;
-  bottom:15px;
-  width:48px;
-  height:48px;
-  border-radius:50%;
-  background:rgba(0,0,0,.8);
-  border:1px solid #aaa;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+.card:hover .card-image img {
+    transform: scale(1.06);
 }
 
-.card-content{
-  padding:25px;
+.card-content {
+    padding: 25px;
 }
 
-.tag{
-  color:#c9a96a;
-  font-size:11px;
-  letter-spacing:2px;
+.tag {
+    color: #c9a96a;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
-.card h3{
-  font-size:25px;
-  font-weight:normal;
-  margin:8px 0;
+.card h3 {
+    margin: 8px 0 10px;
+    font-size: 24px;
+    font-weight: normal;
 }
 
-.card p{
-  color:#999;
-  font-size:15px;
+.card p {
+    color: #929292;
+    font-size: 15px;
 }
 
-.watch{
-  display:inline-block;
-  margin-top:18px;
-  color:white;
-  text-decoration:none;
-  border-bottom:1px solid #777;
+.watch {
+    display: inline-block;
+    margin-top: 18px;
+    color: #ddd;
+    text-decoration: none;
+    border-bottom: 1px solid #666;
+    transition: 0.3s;
 }
 
-.watch:hover{
-  color:#c9a96a;
+.watch:hover {
+    color: #c9a96a;
+    border-color: #c9a96a;
 }
 
-/* BLOCS */
+/* =========================
+   SECTIONS SOMBRES
+========================= */
 
-.dark-section{
-  max-width:none;
-  background:#090909;
-  border-top:1px solid #222;
-  border-bottom:1px solid #222;
+.dark-section {
+    max-width: none;
+    background: #090909;
+    border-top: 1px solid #222;
+    border-bottom: 1px solid #222;
 }
 
-.dark-inner{
-  max-width:1200px;
-  margin:auto;
-  padding:100px 25px;
+.dark-inner {
+    max-width: 1250px;
+    margin: auto;
+    padding: 105px 25px;
 }
 
-.category{
-  border-top:1px solid #292929;
-  padding:35px 10px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:20px;
+/* =========================
+   POÉSIE / CATÉGORIES
+========================= */
+
+.category-list {
+    max-width: 950px;
+    margin: auto;
 }
 
-.category h3{
-  font-size:35px;
-  font-weight:normal;
+.category {
+    border-top: 1px solid #292929;
+    padding: 35px 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
 }
 
-.category p{
-  color:#888;
+.category:last-child {
+    border-bottom: 1px solid #292929;
 }
 
-/* COMMUNAUTÉ */
-
-.community{
-  text-align:center;
-  background:
-    radial-gradient(circle,#1c1813,#050505 65%);
+.category h3 {
+    font-size: 32px;
+    font-weight: normal;
 }
 
-/* FOOTER */
-
-footer{
-  border-top:1px solid #222;
-  padding:45px 20px;
-  text-align:center;
-  color:#777;
+.category p {
+    color: #858585;
 }
 
-.footer-logo{
-  width:65px;
-  height:65px;
-  object-fit:contain;
-  margin-bottom:10px;
+.category-symbol {
+    color: #c9a96a;
+    font-size: 30px;
 }
 
-/* MOBILE */
+/* =========================
+   RECHERCHE
+========================= */
 
-@media(max-width:700px){
-
-  .nav{
-    flex-direction:column;
-  }
-
-  nav{
-    gap:12px;
-  }
-
-  .hero{
-    min-height:85vh;
-    padding-top:60px;
-  }
-
-  .hero-logo{
-    width:140px;
-    height:140px;
-  }
-
-  .hero h1{
-    font-size:52px;
-  }
-
-  .hero p{
-    font-size:16px;
-  }
-
-  section{
-    padding:70px 18px;
-  }
-
-  .section-title h2{
-    font-size:36px;
-  }
-
-  .category{
-    display:block;
-  }
-
-  .category h3{
-    font-size:28px;
-    margin-bottom:8px;
-  }
+.search-container {
+    max-width: 750px;
+    margin: 0 auto 45px;
 }
+
+.search-input {
+    width: 100%;
+    padding: 17px 24px;
+
+    border: 1px solid #444;
+    border-radius: 40px;
+
+    background: #111;
+    color: white;
+
+    font-family: inherit;
+    font-size: 17px;
+
+    outline: none;
+}
+
+.search-input:focus {
+    border-color: #c9a96a;
+    box-shadow: 0 0 20px rgba(201,169,106,0.08);
+}
+
+.no-result {
+    display: none;
+    text-align: center;
+    color: #777;
+    margin-top: 30px;
+}
+
+/* =========================
+   COMMUNAUTÉ
+========================= */
+
+.community {
+    max-width: none;
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #211c16 0%,
+            #080808 65%
+        );
+}
+
+.community-inner {
+    max-width: 900px;
+    margin: auto;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    border-top: 1px solid #222;
+    padding: 55px 20px;
+    text-align: center;
+    color: #777;
+}
+
+.footer-logo {
+    width: 75px;
+    height: 75px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+.footer-title {
+    color: #ddd;
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+
+.footer-links {
+    margin-top: 20px;
+}
+
+.footer-links a {
+    color: #888;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.footer-links a:hover {
+    color: #c9a96a;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes floating {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(0.9);
+        opacity: 0.25;
+    }
+
+    50% {
+        transform: scale(1.08);
+        opacity: 0.7;
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    .navbar {
+        flex-direction: column;
+        padding: 10px 15px;
+    }
+
+    nav {
+        gap: 12px;
+    }
+
+    nav a {
+        font-size: 12px;
+    }
+
+    .hero {
+        min-height: 88vh;
+        padding: 65px 18px;
+    }
+
+    .hero-logo {
+        width: 145px;
+        height: 145px;
+    }
+
+    .hero-description {
+        font-size: 16px;
+    }
+
+    section {
+        padding: 75px 18px;
+    }
+
+    .dark-inner {
+        padding: 75px 18px;
+    }
+
+    .category {
+        display: block;
+    }
+
+    .category h3 {
+        font-size: 27px;
+        margin-bottom: 8px;
+    }
+
+    .category-symbol {
+        display: none;
+    }
+}
+
 </style>
 </head>
 
+
 <body>
+
+
+<!-- =========================
+     NAVIGATION
+========================= -->
 
 <header>
 
-<div class="nav">
+<div class="navbar">
 
 <a href="#accueil">
-<img src="images/logo-transparent.png"
-     alt="Le Style Littéraire"
-     class="logo-small">
+<img
+    src="logo-transparent.png"
+    alt="Logo Le Style Littéraire"
+    class="nav-logo">
 </a>
 
 <nav>
@@ -417,17 +580,20 @@ footer{
 </header>
 
 
-<!-- ACCUEIL -->
+<!-- =========================
+     ACCUEIL
+========================= -->
 
 <section class="hero" id="accueil">
 
 <div class="hero-content">
 
-<img src="images/logo-transparent.png"
-     alt="Logo Le Style Littéraire"
-     class="hero-logo">
+<img
+    src="logo-transparent.png"
+    alt="Logo Le Style Littéraire"
+    class="hero-logo">
 
-<div class="small-title">
+<div class="eyebrow">
 LIRE • COMPRENDRE • RESSENTIR
 </div>
 
@@ -436,19 +602,632 @@ Le Style<br>
 <span>Littéraire</span>
 </h1>
 
-<p>
-Romans, poésie, résumés et explications littéraires.
+<p class="hero-description">
+Romans, poésie, résumés, analyses et culture littéraire.
 Découvrez la littérature autrement.
 </p>
 
 <div class="buttons">
 
-<a class="button" href="#romans">
-Découvrir
+<a class="button gold" href="#romans">
+Découvrir les œuvres
 </a>
 
-<a class="button"
-href="https://youtube.com/@lestylelitteraire?si=nArEJFBJf3bS7BQP"
-target="_blank">
+<a
+    class="button"
+    href="https://youtube.com/@lestylelitteraire?si=nArEJFBJf3bS7BQP"
+    target="_blank">
 ▶ YouTube
-  </a>
+</a>
+
+<a
+    class="button"
+    href="https://whatsapp.com/channel/0029Vb8aJwk7IUYcv6oxLt2N"
+    target="_blank">
+◉ WhatsApp
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     ROMANS
+========================= -->
+
+<section id="romans">
+
+<div class="section-heading">
+
+<small>LES GRANDES ŒUVRES</small>
+
+<h2>Romans</h2>
+
+<p>
+Découvrez des romans célèbres à travers des résumés
+et des explications visuelles.
+</p>
+
+</div>
+
+
+<div class="cards">
+
+
+<!-- ASSOMMOIR -->
+
+<article class="card">
+
+<div class="card-image">
+
+<img
+    src="assommoir.png"
+    alt="L'Assommoir d'Émile Zola">
+
+</div>
+
+<div class="card-content">
+
+<div class="tag">
+Émile Zola
+</div>
+
+<h3>L'Assommoir</h3>
+
+<p>
+Résumé animé du célèbre roman d'Émile Zola
+et découverte de son univers naturaliste.
+</p>
+
+<a
+    class="watch"
+    href="https://youtu.be/kimt-sW8isM?si=NonlBU3_9OnoV11H"
+    target="_blank">
+▶ Voir la vidéo
+</a>
+
+</div>
+
+</article>
+
+
+<!-- MONTE CRISTO -->
+
+<article class="card">
+
+<div class="card-image">
+
+<img
+    src="Monte-Cristo.png"
+    alt="Le Comte de Monte-Cristo">
+
+</div>
+
+<div class="card-content">
+
+<div class="tag">
+Alexandre Dumas
+</div>
+
+<h3>Le Comte de Monte-Cristo</h3>
+
+<p>
+Le parcours d'Edmond Dantès, entre trahison,
+prison, évasion et vengeance.
+</p>
+
+<a
+    class="watch"
+    href="https://youtu.be/KdCKVVFd_WQ?si=InWFyzBo10YCPYox"
+    target="_blank">
+▶ Voir la vidéo
+</a>
+
+</div>
+
+</article>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     ANALYSES
+========================= -->
+
+<section id="analyses" class="dark-section">
+
+<div class="dark-inner">
+
+<div class="section-heading">
+
+<small>COMPRENDRE LES TEXTES</small>
+
+<h2>Analyses</h2>
+
+<p>
+Des explications accessibles pour mieux comprendre
+les œuvres et leurs personnages.
+</p>
+
+</div>
+
+
+<div class="cards">
+
+
+<!-- ETRANGER -->
+
+<article class="card">
+
+<div class="card-image">
+
+<img
+    src="étranger.png"
+    alt="L'Étranger d'Albert Camus">
+
+</div>
+
+<div class="card-content">
+
+<div class="tag">
+Albert Camus
+</div>
+
+<h3>L'Étranger</h3>
+
+<p>
+Une explication visuelle de l'œuvre,
+de Meursault et des grandes idées du roman.
+</p>
+
+<a
+    class="watch"
+    href="https://youtu.be/16lhny_zAwA?si=mo_HQIh8dirWWpM7"
+    target="_blank">
+▶ Voir la vidéo
+</a>
+
+</div>
+
+</article>
+
+
+<!-- MADAME BOVARY -->
+
+<article class="card">
+
+<div class="card-image">
+
+<img
+    src="madame-bovary.png"
+    alt="Madame Bovary de Gustave Flaubert">
+
+</div>
+
+<div class="card-content">
+
+<div class="tag">
+Gustave Flaubert
+</div>
+
+<h3>Emma Bovary</h3>
+
+<p>
+Analyse du personnage d'Emma,
+de ses rêves, de ses frustrations et de son destin.
+</p>
+
+<a
+    class="watch"
+    href="https://youtu.be/FGR2ZjxPOCg?si=neXT8szChWjTWIyB"
+    target="_blank">
+▶ Voir la vidéo
+</a>
+
+</div>
+
+</article>
+
+
+<!-- LITTERATURE 20e -->
+
+<article class="card">
+
+<div class="card-image">
+
+<img
+    src="littérature-20e.png"
+    alt="Histoire de la littérature du 20ème siècle">
+
+</div>
+
+<div class="card-content">
+
+<div class="tag">
+Histoire littéraire
+</div>
+
+<h3>Littérature du XXe siècle</h3>
+
+<p>
+Un voyage à travers l'histoire,
+les mouvements et les grands écrivains du XXe siècle.
+</p>
+
+<a
+    class="watch"
+    href="https://youtu.be/bjdrF2RsucE?si=R2RnSLR7aMvv9E-n"
+    target="_blank">
+▶ Voir la vidéo
+</a>
+
+</div>
+
+</article>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     POÉSIE
+========================= -->
+
+<section id="poesie">
+
+<div class="section-heading">
+
+<small>VERS • RYTHME • IMAGINAIRE</small>
+
+<h2>Poésie</h2>
+
+<p>
+Un espace consacré aux poètes, aux vers
+et à la beauté du langage.
+</p>
+
+</div>
+
+
+<div class="category-list">
+
+<div class="category">
+
+<div>
+
+<h3>Les poètes</h3>
+
+<p>
+Découvrez les grandes figures de la poésie française.
+</p>
+
+</div>
+
+<div class="category-symbol">
+✒
+</div>
+
+</div>
+
+
+<div class="category">
+
+<div>
+
+<h3>Les œuvres poétiques</h3>
+
+<p>
+Poèmes, explications et lectures à découvrir progressivement.
+</p>
+
+</div>
+
+<div class="category-symbol">
+❝
+</div>
+
+</div>
+
+
+<div class="category">
+
+<div>
+
+<h3>À venir</h3>
+
+<p>
+De nouvelles œuvres seront ajoutées au fil des créations.
+</p>
+
+</div>
+
+<div class="category-symbol">
+✦
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     RECHERCHE
+========================= -->
+
+<section id="recherche" class="dark-section">
+
+<div class="dark-inner">
+
+<div class="section-heading">
+
+<small>EXPLORER LE SITE</small>
+
+<h2>Recherche</h2>
+
+<p>
+Recherchez directement une œuvre, un auteur,
+un personnage ou un thème présent sur cette page.
+</p>
+
+</div>
+
+
+<div class="search-container">
+
+<input
+    id="searchInput"
+    class="search-input"
+    type="search"
+    placeholder="Rechercher une œuvre ou un auteur..."
+    aria-label="Rechercher">
+
+</div>
+
+
+<div id="searchCards" class="cards">
+
+
+<article class="card searchable">
+
+<div class="card-content">
+
+<div class="tag">Roman</div>
+
+<h3>L'Assommoir</h3>
+
+<p>
+Émile Zola — naturalisme — roman — résumé animé.
+</p>
+
+</div>
+
+</article>
+
+
+<article class="card searchable">
+
+<div class="card-content">
+
+<div class="tag">Roman</div>
+
+<h3>Le Comte de Monte-Cristo</h3>
+
+<p>
+Alexandre Dumas — Edmond Dantès — vengeance — aventure.
+</p>
+
+</div>
+
+</article>
+
+
+<article class="card searchable">
+
+<div class="card-content">
+
+<div class="tag">Analyse</div>
+
+<h3>L'Étranger</h3>
+
+<p>
+Albert Camus — Meursault — absurde — explication.
+</p>
+
+</div>
+
+</article>
+
+
+<article class="card searchable">
+
+<div class="card-content">
+
+<div class="tag">Analyse</div>
+
+<h3>Madame Bovary</h3>
+
+<p>
+Gustave Flaubert — Emma — personnage — analyse.
+</p>
+
+</div>
+
+</article>
+
+
+<article class="card searchable">
+
+<div class="card-content">
+
+<div class="tag">Histoire littéraire</div>
+
+<h3>Littérature du XXe siècle</h3>
+
+<p>
+XXe siècle — mouvements littéraires — écrivains — histoire.
+</p>
+
+</div>
+
+</article>
+
+
+</div>
+
+
+<p id="noResult" class="no-result">
+Aucun résultat trouvé.
+</p>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     COMMUNAUTÉ
+========================= -->
+
+<section id="communaute" class="community">
+
+<div class="community-inner">
+
+<div class="section-heading">
+
+<small>REJOINDRE L'AVENTURE</small>
+
+<h2>Communauté</h2>
+
+<p>
+Le Style Littéraire est aussi un espace pour les lecteurs,
+les écrivains et tous ceux qui aiment les mots.
+</p>
+
+</div>
+
+
+<div class="buttons">
+
+<a
+    class="button gold"
+    href="https://whatsapp.com/channel/0029Vb8aJwk7IUYcv6oxLt2N"
+    target="_blank">
+Rejoindre WhatsApp
+</a>
+
+<a
+    class="button"
+    href="https://youtube.com/@lestylelitteraire?si=nArEJFBJf3bS7BQP"
+    target="_blank">
+Visiter YouTube
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+<img
+    src="logo-transparent.png"
+    alt="Le Style Littéraire"
+    class="footer-logo">
+
+<div class="footer-title">
+Le Style Littéraire
+</div>
+
+<p>
+Romans • Poésie • Analyses • Culture littéraire
+</p>
+
+<div class="footer-links">
+
+<a href="#accueil">Accueil</a>
+
+<a href="#romans">Romans</a>
+
+<a href="#analyses">Analyses</a>
+
+<a href="#poesie">Poésie</a>
+
+</div>
+
+<p style="margin-top:25px;">
+© 2026 Le Style Littéraire
+</p>
+
+</footer>
+
+
+<!-- =========================
+     RECHERCHE JAVASCRIPT
+========================= -->
+
+<script>
+
+const searchInput = document.getElementById("searchInput");
+const cards = document.querySelectorAll(".searchable");
+const noResult = document.getElementById("noResult");
+
+searchInput.addEventListener("input", function() {
+
+    const search = this.value
+        .toLowerCase()
+        .trim();
+
+    let found = 0;
+
+    cards.forEach(function(card) {
+
+        const text = card.textContent.toLowerCase();
+
+        if (text.includes(search)) {
+
+            card.style.display = "";
+
+            found++;
+
+        } else {
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+    if (search !== "" && found === 0) {
+
+        noResult.style.display = "block";
+
+    } else {
+
+        noResult.style.display = "none";
+
+    }
+
+});
+
+</script>
+
+
+</body>
+  </html>
