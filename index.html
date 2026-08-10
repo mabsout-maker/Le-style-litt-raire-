@@ -3,486 +3,211 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <meta name="description" content="Le Style Littéraire — romans, poésie, analyses et histoire de la littérature.">
+  <meta name="theme-color" content="#050505">
   <title>Le Style Littéraire</title>
-
-  <meta name="description" content="Le Style Littéraire — Romans, poésie, résumés et explications littéraires.">
-  <meta name="theme-color" content="#111111">
-
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Georgia, "Times New Roman", serif;
-      background: #0b0b0d;
-      color: #f4f1e8;
-      line-height: 1.7;
-    }
-
-    header {
-      min-height: 90vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 40px 20px;
-      background:
-        radial-gradient(circle at center, #29231d 0%, #11100f 45%, #050505 100%);
-    }
-
-    .logo {
-      width: 150px;
-      height: 150px;
-      object-fit: contain;
-      margin-bottom: 25px;
-      filter: drop-shadow(0 0 18px rgba(255,255,255,0.15));
-    }
-
-    header h1 {
-      font-size: clamp(42px, 9vw, 82px);
-      letter-spacing: 2px;
-      font-weight: normal;
-    }
-
-    header p {
-      margin-top: 15px;
-      font-size: 19px;
-      color: #c9c3b8;
-      max-width: 650px;
-    }
-
-    .buttons {
-      margin-top: 30px;
-      display: flex;
-      gap: 15px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .button {
-      display: inline-block;
-      padding: 12px 22px;
-      border: 1px solid #777;
-      border-radius: 30px;
-      color: white;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-
-    .button:hover {
-      background: white;
-      color: black;
-      transform: translateY(-2px);
-    }
-
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      background: rgba(8,8,8,0.95);
-      border-bottom: 1px solid #292929;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      padding: 12px;
-      gap: 22px;
-    }
-
-    nav a {
-      color: #ddd;
-      text-decoration: none;
-      font-size: 15px;
-    }
-
-    nav a:hover {
-      color: white;
-    }
-
-    section {
-      max-width: 1100px;
-      margin: auto;
-      padding: 80px 20px;
-    }
-
-    .title {
-      text-align: center;
-      margin-bottom: 45px;
-    }
-
-    .title h2 {
-      font-size: 38px;
-      font-weight: normal;
-    }
-
-    .title p {
-      color: #aaa;
-      margin-top: 8px;
-    }
-
-    .search {
-      max-width: 600px;
-      margin: 0 auto 40px;
-    }
-
-    .search input {
-      width: 100%;
-      padding: 15px 20px;
-      border-radius: 30px;
-      border: 1px solid #444;
-      background: #151515;
-      color: white;
-      font-size: 16px;
-      outline: none;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 22px;
-    }
-
-    .card {
-      background: linear-gradient(145deg, #191919, #101010);
-      border: 1px solid #292929;
-      border-radius: 14px;
-      padding: 28px;
-      transition: 0.3s;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      border-color: #666;
-    }
-
-    .card h3 {
-      font-size: 23px;
-      margin-bottom: 10px;
-    }
-
-    .card p {
-      color: #aaa;
-    }
-
-    .card a {
-      display: inline-block;
-      margin-top: 18px;
-      color: white;
-      text-decoration: none;
-      border-bottom: 1px solid #777;
-    }
-
-    .anime {
-      background:
-        linear-gradient(rgba(0,0,0,0.78), rgba(0,0,0,0.9)),
-        radial-gradient(circle at 80% 30%, #44372b, #080808 60%);
-      border-top: 1px solid #222;
-      border-bottom: 1px solid #222;
-    }
-
-    .youtube,
-    .whatsapp {
-      text-align: center;
-    }
-
-    .social-box {
-      max-width: 700px;
-      margin: auto;
-      background: #151515;
-      border: 1px solid #292929;
-      border-radius: 18px;
-      padding: 40px 25px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 40px 20px;
-      border-top: 1px solid #222;
-      color: #888;
-      font-size: 14px;
-    }
-
-    @media (max-width: 600px) {
-      header {
-        min-height: 80vh;
-      }
-
-      section {
-        padding: 60px 18px;
-      }
-
-      .title h2 {
-        font-size: 30px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+  <div class="grain" aria-hidden="true"></div>
 
-  <header id="accueil">
+  <header class="site-header">
+    <a class="brand" href="#accueil" aria-label="Le Style Littéraire — accueil">
+      <img src="images/logo-transparent.png" alt="Logo Le Style Littéraire">
+      <span>Le Style<br><em>Littéraire</em></span>
+    </a>
 
-    <!-- Ton logo -->
-    <img src="logo.jpg.png" alt="Logo Le Style Littéraire" class="logo">
+    <button class="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
 
-    <h1>Le Style Littéraire</h1>
-
-    <p>
-      Romans, poésie, résumés et explications littéraires.
-      Découvrez la littérature autrement.
-    </p>
-
-    <div class="buttons">
-      <a class="button" href="#romans">Découvrir</a>
-      <a class="button" href="https://youtube.com/@lestylelitteraire?si=nArEJFBJf3bS7BQP" target="_blank">
-        YouTube
-      </a>
-      <a class="button" href="https://whatsapp.com/channel/0029Vb8aJwk7IUYcv6oxLt2N" target="_blank">
-        WhatsApp
-      </a>
-    </div>
-
+    <nav class="main-nav" id="mainNav">
+      <a href="#accueil">Accueil</a>
+      <a href="#romans">Romans</a>
+      <a href="#poesie">Poésie</a>
+      <a href="#analyses">Analyses</a>
+      <a href="#recherche">Recherche</a>
+      <a href="#communaute">Communauté</a>
+    </nav>
   </header>
 
-  <nav>
-    <a href="#accueil">Accueil</a>
-    <a href="#romans">Romans</a>
-    <a href="#poesie">Poésie</a>
-    <a href="#analyses">Analyses</a>
-    <a href="#recherche">Recherche</a>
-    <a href="#communaute">Communauté</a>
-  </nav>
-
   <main>
-
-    <section id="recherche">
-
-      <div class="title">
-        <h2>Recherche</h2>
-        <p>Trouvez un roman, un auteur ou un thème littéraire.</p>
-      </div>
-
-      <div class="search">
-        <input
-          type="search"
-          id="searchInput"
-          placeholder="Rechercher dans Le Style Littéraire..."
-          onkeyup="searchContent()"
-        >
-      </div>
-
-      <div class="cards" id="searchResults">
-
-        <article class="card searchable">
-          <h3>Romans</h3>
-          <p>Découvrez des œuvres célèbres et leurs histoires.</p>
-        </article>
-
-        <article class="card searchable">
-          <h3>Poésie</h3>
-          <p>Explorez les grands textes et les univers poétiques.</p>
-        </article>
-
-        <article class="card searchable">
-          <h3>Analyse littéraire</h3>
-          <p>Comprenez les thèmes, les personnages et les messages des œuvres.</p>
-        </article>
-
-      </div>
-
-    </section>
-
-
-    <section id="romans">
-
-      <div class="title">
-        <h2>📚 Romans</h2>
-        <p>Lire, comprendre et découvrir les grandes œuvres.</p>
-      </div>
-
-      <div class="cards">
-
-        <article class="card">
-          <h3>Résumés de romans</h3>
-          <p>
-            Des résumés simples et accessibles pour comprendre rapidement
-            l'histoire et les événements essentiels.
-          </p>
-          <a href="#">Explorer →</a>
-        </article>
-
-        <article class="card">
-          <h3>Personnages</h3>
-          <p>
-            Découvrez les personnages principaux, leurs relations,
-            leurs motivations et leur évolution.
-          </p>
-          <a href="#">Explorer →</a>
-        </article>
-
-        <article class="card">
-          <h3>Thèmes</h3>
-          <p>
-            Amour, mort, liberté, solitude, société, pouvoir et bien plus.
-          </p>
-          <a href="#">Explorer →</a>
-        </article>
-
-      </div>
-
-    </section>
-
-
-    <section id="poesie" class="anime">
-
-      <div class="title">
-        <h2>✒️ Poésie</h2>
-        <p>Les mots, les émotions et la beauté du langage.</p>
-      </div>
-
-      <div class="cards">
-
-        <article class="card">
-          <h3>Poèmes</h3>
-          <p>
-            Découvrez des poèmes et plongez dans leurs univers.
-          </p>
-        </article>
-
-        <article class="card">
-          <h3>Poètes</h3>
-          <p>
-            Découvrez les auteurs qui ont marqué l'histoire de la poésie.
-          </p>
-        </article>
-
-        <article class="card">
-          <h3>Explications</h3>
-          <p>
-            Comprenez les images, symboles et émotions cachés derrière les vers.
-          </p>
-        </article>
-
-      </div>
-
-    </section>
-
-
-    <section id="analyses">
-
-      <div class="title">
-        <h2>🔎 Explications littéraires</h2>
-        <p>Comprendre les œuvres au-delà de leur histoire.</p>
-      </div>
-
-      <div class="cards">
-
-        <article class="card">
-          <h3>Analyse d'œuvres</h3>
-          <p>
-            Une approche claire des œuvres littéraires et de leurs idées.
-          </p>
-        </article>
-
-        <article class="card">
-          <h3>Analyse des personnages</h3>
-          <p>
-            Comprendre leur psychologie, leurs choix et leur rôle dans l'histoire.
-          </p>
-        </article>
-
-        <article class="card">
-          <h3>Symboles et messages</h3>
-          <p>
-            Découvrir les significations cachées et les grandes idées des auteurs.
-          </p>
-        </article>
-
-      </div>
-
-    </section>
-
-
-    <section id="communaute" class="anime">
-
-      <div class="title">
-        <h2>💬 La communauté</h2>
-        <p>La littérature est encore plus belle lorsqu'elle est partagée.</p>
-      </div>
-
-      <div class="social-box">
-
-        <h3>Partagez vos textes</h3>
-
-        <p>
-          Vous écrivez un poème, une histoire ou un texte littéraire ?
-          Vous pourrez prochainement le partager avec la communauté
-          du Style Littéraire.
-        </p>
-
-        <div class="buttons">
-
-          <a
-            class="button"
-            href="https://youtube.com/@lestylelitteraire?si=nArEJFBJf3bS7BQP"
-            target="_blank">
-            Ma chaîne YouTube
-          </a>
-
-          <a
-            class="button"
-            href="https://whatsapp.com/channel/0029Vb8aJwk7IUYcv6oxLt2N"
-            target="_blank">
-            Ma chaîne WhatsApp
-          </a>
-
+    <section class="hero" id="accueil">
+      <div class="hero-aura"></div>
+      <div class="hero-content">
+        <div class="hero-logo">
+          <img src="images/logo-transparent.png" alt="">
         </div>
-
+        <p class="eyebrow">LIRE · COMPRENDRE · RESSENTIR</p>
+        <h1>Le Style <span>Littéraire</span></h1>
+        <p class="hero-text">
+          Romans, poésie, résumés et explications littéraires.
+          <br>Découvrez la littérature autrement.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#bibliotheque">Découvrir <span>↓</span></a>
+          <a class="btn" href="https://www.youtube.com/" target="_blank" rel="noopener">YouTube <span>↗</span></a>
+          <a class="btn" href="https://wa.me/?text=Découvrez%20Le%20Style%20Littéraire" target="_blank" rel="noopener">WhatsApp <span>↗</span></a>
+        </div>
       </div>
-
+      <div class="scroll-cue">FAIRE DÉFILER <span>↓</span></div>
     </section>
 
+    <section class="intro section">
+      <div class="section-kicker">01 — L'ESPRIT</div>
+      <div class="intro-grid">
+        <h2>La littérature<br><em>en mouvement.</em></h2>
+        <p>
+          Une bibliothèque visuelle consacrée aux grandes œuvres, aux auteurs
+          et aux idées qui traversent les siècles. Chaque œuvre devient une
+          porte d'entrée vers un univers à découvrir.
+        </p>
+      </div>
+    </section>
+
+    <section class="library section" id="bibliotheque">
+      <div class="section-heading">
+        <div>
+          <div class="section-kicker">02 — BIBLIOTHÈQUE</div>
+          <h2>Œuvres & <em>analyses</em></h2>
+        </div>
+        <p class="section-note">5 créations disponibles</p>
+      </div>
+
+      <div class="filters" aria-label="Filtrer les œuvres">
+        <button class="filter active" data-filter="all">Tout</button>
+        <button class="filter" data-filter="roman">Romans</button>
+        <button class="filter" data-filter="analyse">Analyses</button>
+        <button class="filter" data-filter="histoire">Histoire</button>
+      </div>
+
+      <div class="cards" id="cards">
+        <article class="card reveal" data-category="histoire" data-search="histoire littérature littérature 20ème siècle xxème siècle philosophie révolution existentialisme">
+          <a class="card-image" href="https://youtu.be/bjdrF2RsucE" target="_blank" rel="noopener">
+            <img src="images/litterature-20e.png" alt="Histoire de la littérature du 20ème siècle">
+            <span class="play">▶</span>
+          </a>
+          <div class="card-body">
+            <span class="tag">HISTOIRE</span>
+            <h3>Histoire de la littérature du 20ème siècle</h3>
+            <p>Les idées, mouvements et grandes figures qui ont marqué le XXème siècle.</p>
+            <a class="watch" href="https://youtu.be/bjdrF2RsucE" target="_blank" rel="noopener">Voir la vidéo <span>↗</span></a>
+          </div>
+        </article>
+
+        <article class="card reveal" data-category="roman" data-search="assommoir émile zola roman résumé animé naturalisme">
+          <a class="card-image" href="https://youtu.be/kimt-sW8isM" target="_blank" rel="noopener">
+            <img src="images/assommoir.png" alt="L'Assommoir d'Émile Zola">
+            <span class="play">▶</span>
+          </a>
+          <div class="card-body">
+            <span class="tag">ROMAN</span>
+            <h3>L'Assommoir</h3>
+            <p>Le roman d'Émile Zola raconté et résumé à travers une expérience visuelle.</p>
+            <a class="watch" href="https://youtu.be/kimt-sW8isM" target="_blank" rel="noopener">Voir la vidéo <span>↗</span></a>
+          </div>
+        </article>
+
+        <article class="card reveal" data-category="roman" data-search="comte monte cristo alexandre dumas roman résumé animé vengeance">
+          <a class="card-image" href="https://youtu.be/KdCKVVFd_WQ" target="_blank" rel="noopener">
+            <img src="images/monte-cristo.png" alt="Le Comte de Monte-Cristo d'Alexandre Dumas">
+            <span class="play">▶</span>
+          </a>
+          <div class="card-body">
+            <span class="tag">ROMAN</span>
+            <h3>Le Comte de Monte-Cristo</h3>
+            <p>Alexandre Dumas, la chute, l'évasion et la grande histoire de la vengeance.</p>
+            <a class="watch" href="https://youtu.be/KdCKVVFd_WQ" target="_blank" rel="noopener">Voir la vidéo <span>↗</span></a>
+          </div>
+        </article>
+
+        <article class="card reveal" data-category="analyse" data-search="étranger albert camus absurdité explication visuelle philosophie">
+          <a class="card-image" href="https://youtu.be/16lhny_zAwA" target="_blank" rel="noopener">
+            <img src="images/etranger.png" alt="L'Étranger d'Albert Camus">
+            <span class="play">▶</span>
+          </a>
+          <div class="card-body">
+            <span class="tag">ANALYSE</span>
+            <h3>L'Étranger — Albert Camus</h3>
+            <p>Une explication visuelle de l'œuvre, de Meursault et de l'absurde.</p>
+            <a class="watch" href="https://youtu.be/16lhny_zAwA" target="_blank" rel="noopener">Voir la vidéo <span>↗</span></a>
+          </div>
+        </article>
+
+        <article class="card reveal" data-category="analyse" data-search="madame bovary gustave flaubert emma analyse personnage">
+          <a class="card-image" href="https://youtu.be/FGR2ZjxPOCg" target="_blank" rel="noopener">
+            <img src="images/madame-bovary.png" alt="Madame Bovary de Gustave Flaubert">
+            <span class="play">▶</span>
+          </a>
+          <div class="card-body">
+            <span class="tag">ANALYSE</span>
+            <h3>Madame Bovary</h3>
+            <p>Analyse du personnage d'Emma et de ses rêves face à la réalité.</p>
+            <a class="watch" href="https://youtu.be/FGR2ZjxPOCg" target="_blank" rel="noopener">Voir la vidéo <span>↗</span></a>
+          </div>
+        </article>
+      </div>
+
+      <div class="empty" id="emptyState" hidden>Aucune œuvre ne correspond à votre recherche.</div>
+    </section>
+
+    <section class="search-section section" id="recherche">
+      <div class="search-box">
+        <div class="section-kicker">03 — EXPLORER</div>
+        <h2>Rechercher une <em>œuvre</em></h2>
+        <p>Écrivez un titre, un auteur, un mouvement ou un mot-clé.</p>
+        <div class="search-field">
+          <span>⌕</span>
+          <input id="searchInput" type="search" placeholder="Ex. Camus, Zola, Emma..." autocomplete="off">
+          <button id="clearSearch" type="button" aria-label="Effacer la recherche">×</button>
+        </div>
+        <div class="search-result" id="searchResult">Toutes les œuvres sont affichées.</div>
+      </div>
+    </section>
+
+    <section class="categories section" id="romans">
+      <div class="category-panel">
+        <span class="number">01</span>
+        <div><span class="tag">ROMANS</span><h2>Les grandes histoires.</h2></div>
+        <a href="#bibliotheque" class="circle-link">→</a>
+      </div>
+      <div class="category-panel" id="poesie">
+        <span class="number">02</span>
+        <div><span class="tag">POÉSIE</span><h2>Les mots qui restent.</h2></div>
+        <a href="#bibliotheque" class="circle-link">→</a>
+      </div>
+      <div class="category-panel" id="analyses">
+        <span class="number">03</span>
+        <div><span class="tag">ANALYSES</span><h2>Lire au-delà du texte.</h2></div>
+        <a href="#bibliotheque" class="circle-link">→</a>
+      </div>
+    </section>
+
+    <section class="quote section">
+      <div class="quote-mark">“</div>
+      <blockquote>Un livre est une fenêtre par laquelle on s'évade.</blockquote>
+      <p>— Le Style Littéraire</p>
+    </section>
+
+    <section class="community section" id="communaute">
+      <div>
+        <div class="section-kicker">04 — COMMUNAUTÉ</div>
+        <h2>La littérature se<br><em>partage.</em></h2>
+      </div>
+      <div class="community-copy">
+        <p>Retrouvez les nouvelles créations, analyses et résumés sur la chaîne YouTube.</p>
+        <a class="btn btn-primary" href="https://www.youtube.com/" target="_blank" rel="noopener">Visiter YouTube ↗</a>
+      </div>
+    </section>
   </main>
 
-
   <footer>
-    <p>© 2026 — Le Style Littéraire</p>
-    <p>Romans • Poésie • Analyse • Culture littéraire</p>
+    <div class="footer-brand">
+      <img src="images/logo-transparent.png" alt="Logo">
+      <strong>Le Style Littéraire</strong>
+    </div>
+    <p>© 2026 Le Style Littéraire — Lire autrement.</p>
+    <a href="#accueil">Retour en haut ↑</a>
   </footer>
 
-
-  <script>
-    function searchContent() {
-
-      const input = document
-        .getElementById("searchInput")
-        .value
-        .toLowerCase();
-
-      const cards = document.querySelectorAll(".searchable");
-
-      cards.forEach(card => {
-
-        const text = card.innerText.toLowerCase();
-
-        if (text.includes(input)) {
-          card.style.display = "";
-        } else {
-          card.style.display = "none";
-        }
-
-      });
-
-    }
-  </script>
-
+  <script src="script.js"></script>
 </body>
-  </html>
+</html>
