@@ -1,213 +1,454 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Le Style Littéraire — romans, poésie, analyses et histoire de la littérature.">
-  <meta name="theme-color" content="#050505">
-  <title>Le Style Littéraire</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Le Style Littéraire</title>
+
+<meta name="description" content="Le Style Littéraire — Romans, poésie, analyses et culture littéraire.">
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:#050505;
+  color:#f4f0e8;
+  font-family:Georgia,"Times New Roman",serif;
+  line-height:1.7;
+}
+
+/* NAVIGATION */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(5,5,5,.94);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid #292929;
+  padding:12px 20px;
+}
+
+.nav{
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.logo-small{
+  width:55px;
+  height:55px;
+  object-fit:contain;
+}
+
+nav{
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px;
+  justify-content:center;
+}
+
+nav a{
+  color:#ddd;
+  text-decoration:none;
+  font-size:14px;
+  transition:.3s;
+}
+
+nav a:hover{
+  color:#c9a96a;
+}
+
+/* ACCUEIL */
+
+.hero{
+  min-height:92vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:80px 20px;
+  background:
+    radial-gradient(circle at center,#211c16 0%,#0c0c0c 42%,#000 100%);
+}
+
+.hero-content{
+  max-width:900px;
+}
+
+.hero-logo{
+  width:180px;
+  height:180px;
+  object-fit:contain;
+  margin-bottom:25px;
+  filter:drop-shadow(0 0 30px rgba(255,255,255,.12));
+}
+
+.small-title{
+  color:#c9a96a;
+  letter-spacing:4px;
+  font-size:12px;
+  margin-bottom:15px;
+}
+
+.hero h1{
+  font-size:clamp(48px,9vw,95px);
+  font-weight:normal;
+  line-height:1;
+}
+
+.hero h1 span{
+  color:#c9a96a;
+  font-style:italic;
+}
+
+.hero p{
+  max-width:700px;
+  margin:25px auto;
+  color:#aaa;
+  font-size:19px;
+}
+
+.buttons{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:30px;
+}
+
+.button{
+  display:inline-block;
+  padding:12px 23px;
+  border:1px solid #555;
+  border-radius:30px;
+  color:white;
+  text-decoration:none;
+  transition:.3s;
+}
+
+.button:hover{
+  background:#c9a96a;
+  color:#000;
+  border-color:#c9a96a;
+  transform:translateY(-3px);
+}
+
+/* SECTIONS */
+
+section{
+  max-width:1200px;
+  margin:auto;
+  padding:100px 25px;
+}
+
+.section-title{
+  text-align:center;
+  margin-bottom:50px;
+}
+
+.section-title small{
+  color:#c9a96a;
+  letter-spacing:3px;
+}
+
+.section-title h2{
+  font-size:48px;
+  font-weight:normal;
+  margin:10px 0;
+}
+
+.section-title p{
+  color:#999;
+}
+
+/* RECHERCHE */
+
+.search-box{
+  max-width:700px;
+  margin:0 auto 50px;
+}
+
+.search-box input{
+  width:100%;
+  padding:17px 22px;
+  border-radius:40px;
+  border:1px solid #444;
+  background:#111;
+  color:white;
+  font-size:17px;
+  outline:none;
+}
+
+.search-box input:focus{
+  border-color:#c9a96a;
+}
+
+/* CARTES */
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:25px;
+}
+
+.card{
+  background:linear-gradient(145deg,#151515,#090909);
+  border:1px solid #292929;
+  border-radius:15px;
+  overflow:hidden;
+  transition:.4s;
+}
+
+.card:hover{
+  transform:translateY(-7px);
+  border-color:#76603b;
+  box-shadow:0 20px 50px rgba(0,0,0,.5);
+}
+
+.card-image{
+  position:relative;
+  width:100%;
+  aspect-ratio:16/9;
+  overflow:hidden;
+  background:#000;
+}
+
+.card-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:.5s;
+}
+
+.card:hover .card-image img{
+  transform:scale(1.05);
+}
+
+.play{
+  position:absolute;
+  right:15px;
+  bottom:15px;
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  background:rgba(0,0,0,.8);
+  border:1px solid #aaa;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.card-content{
+  padding:25px;
+}
+
+.tag{
+  color:#c9a96a;
+  font-size:11px;
+  letter-spacing:2px;
+}
+
+.card h3{
+  font-size:25px;
+  font-weight:normal;
+  margin:8px 0;
+}
+
+.card p{
+  color:#999;
+  font-size:15px;
+}
+
+.watch{
+  display:inline-block;
+  margin-top:18px;
+  color:white;
+  text-decoration:none;
+  border-bottom:1px solid #777;
+}
+
+.watch:hover{
+  color:#c9a96a;
+}
+
+/* BLOCS */
+
+.dark-section{
+  max-width:none;
+  background:#090909;
+  border-top:1px solid #222;
+  border-bottom:1px solid #222;
+}
+
+.dark-inner{
+  max-width:1200px;
+  margin:auto;
+  padding:100px 25px;
+}
+
+.category{
+  border-top:1px solid #292929;
+  padding:35px 10px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.category h3{
+  font-size:35px;
+  font-weight:normal;
+}
+
+.category p{
+  color:#888;
+}
+
+/* COMMUNAUTÉ */
+
+.community{
+  text-align:center;
+  background:
+    radial-gradient(circle,#1c1813,#050505 65%);
+}
+
+/* FOOTER */
+
+footer{
+  border-top:1px solid #222;
+  padding:45px 20px;
+  text-align:center;
+  color:#777;
+}
+
+.footer-logo{
+  width:65px;
+  height:65px;
+  object-fit:contain;
+  margin-bottom:10px;
+}
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+  .nav{
+    flex-direction:column;
+  }
+
+  nav{
+    gap:12px;
+  }
+
+  .hero{
+    min-height:85vh;
+    padding-top:60px;
+  }
+
+  .hero-logo{
+    width:140px;
+    height:140px;
+  }
+
+  .hero h1{
+    font-size:52px;
+  }
+
+  .hero p{
+    font-size:16px;
+  }
+
+  section{
+    padding:70px 18px;
+  }
+
+  .section-title h2{
+    font-size:36px;
+  }
+
+  .category{
+    display:block;
+  }
+
+  .category h3{
+    font-size:28px;
+    margin-bottom:8px;
+  }
+}
+</style>
 </head>
+
 <body>
-  <div class="grain" aria-hidden="true"></div>
 
-  <header class="site-header">
-    <a class="brand" href="#accueil" aria-label="Le Style Littéraire — accueil">
-      <img src="images/logo-transparent.png" alt="Logo Le Style Littéraire">
-      <span>Le Style<br><em>Littéraire</em></span>
-    </a>
+<header>
 
-    <button class="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+<div class="nav">
 
-    <nav class="main-nav" id="mainNav">
-      <a href="#accueil">Accueil</a>
-      <a href="#romans">Romans</a>
-      <a href="#poesie">Poésie</a>
-      <a href="#analyses">Analyses</a>
-      <a href="#recherche">Recherche</a>
-      <a href="#communaute">Communauté</a>
-    </nav>
-  </header>
+<a href="#accueil">
+<img src="images/logo-transparent.png"
+     alt="Le Style Littéraire"
+     class="logo-small">
+</a>
 
-  <main>
-    <section class="hero" id="accueil">
-      <div class="hero-aura"></div>
-      <div class="hero-content">
-        <div class="hero-logo">
-          <img src="images/logo-transparent.png" alt="">
-        </div>
-        <p class="eyebrow">LIRE · COMPRENDRE · RESSENTIR</p>
-        <h1>Le Style <span>Littéraire</span></h1>
-        <p class="hero-text">
-          Romans, poésie, résumés et explications littéraires.
-          <br>Découvrez la littérature autrement.
-        </p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#bibliotheque">Découvrir <span>↓</span></a>
-          <a class="btn" href="https://www.youtube.com/" target="_blank" rel="noopener">YouTube <span>↗</span></a>
-          <a class="btn" href="https://wa.me/?text=Découvrez%20Le%20Style%20Littéraire" target="_blank" rel="noopener">WhatsApp <span>↗</span></a>
-        </div>
-      </div>
-      <div class="scroll-cue">FAIRE DÉFILER <span>↓</span></div>
-    </section>
+<nav>
+<a href="#accueil">Accueil</a>
+<a href="#romans">Romans</a>
+<a href="#poesie">Poésie</a>
+<a href="#analyses">Analyses</a>
+<a href="#recherche">Recherche</a>
+<a href="#communaute">Communauté</a>
+</nav>
 
-    <section class="intro section">
-      <div class="section-kicker">01 — L'ESPRIT</div>
-      <div class="intro-grid">
-        <h2>La littérature<br><em>en mouvement.</em></h2>
-        <p>
-          Une bibliothèque visuelle consacrée aux grandes œuvres, aux auteurs
-          et aux idées qui traversent les siècles. Chaque œuvre devient une
-          porte d'entrée vers un univers à découvrir.
-        </p>
-      </div>
-    </section>
+</div>
 
-    <section class="library section" id="bibliotheque">
-      <div class="section-heading">
-        <div>
-          <div class="section-kicker">02 — BIBLIOTHÈQUE</div>
-          <h2>Œuvres & <em>analyses</em></h2>
-        </div>
-        <p class="section-note">5 créations disponibles</p>
-      </div>
+</header>
 
-      <div class="filters" aria-label="Filtrer les œuvres">
-        <button class="filter active" data-filter="all">Tout</button>
-        <button class="filter" data-filter="roman">Romans</button>
-        <button class="filter" data-filter="analyse">Analyses</button>
-        <button class="filter" data-filter="histoire">Histoire</button>
-      </div>
 
-      <div class="cards" id="cards">
-        <article class="card reveal" data-category="histoire" data-search="histoire littérature littérature 20ème siècle xxème siècle philosophie révolution existentialisme">
-          <a class="card-image" href="https://youtu.be/bjdrF2RsucE" target="_blank" rel="noopener">
-            <img src="images/litterature-20e.png" alt="Histoire de la littérature du 20ème siècle">
-            <span class="play">▶</span>
-          </a>
-          <div class="card-body">
-            <span class="tag">HISTOIRE</span>
-            <h3>Histoire de la littérature du 20ème siècle</h3>
-            <p>Les idées, mouvements et grandes figures qui ont marqué le XXème siècle.</p>
-            <a class="watch" href="https://youtu.be/bjdrF2RsucE" target="_blank" rel="noopener">Voir la vidéo <span>↗</span></a>
-          </div>
-        </article>
+<!-- ACCUEIL -->
 
-        <article class="card reveal" data-category="roman" data-search="assommoir émile zola roman résumé animé naturalisme">
-          <a class="card-image" href="https://youtu.be/kimt-sW8isM" target="_blank" rel="noopener">
-            <img src="images/assommoir.png" alt="L'Assommoir d'Émile Zola">
-            <span class="play">▶</span>
-          </a>
-          <div class="card-body">
-            <span class="tag">ROMAN</span>
-            <h3>L'Assommoir</h3>
-            <p>Le roman d'Émile Zola raconté et résumé à travers une expérience visuelle.</p>
-            <a class="watch" href="https://youtu.be/kimt-sW8isM" target="_blank" rel="noopener">Voir la vidéo <span>↗</span></a>
-          </div>
-        </article>
+<section class="hero" id="accueil">
 
-        <article class="card reveal" data-category="roman" data-search="comte monte cristo alexandre dumas roman résumé animé vengeance">
-          <a class="card-image" href="https://youtu.be/KdCKVVFd_WQ" target="_blank" rel="noopener">
-            <img src="images/monte-cristo.png" alt="Le Comte de Monte-Cristo d'Alexandre Dumas">
-            <span class="play">▶</span>
-          </a>
-          <div class="card-body">
-            <span class="tag">ROMAN</span>
-            <h3>Le Comte de Monte-Cristo</h3>
-            <p>Alexandre Dumas, la chute, l'évasion et la grande histoire de la vengeance.</p>
-            <a class="watch" href="https://youtu.be/KdCKVVFd_WQ" target="_blank" rel="noopener">Voir la vidéo <span>↗</span></a>
-          </div>
-        </article>
+<div class="hero-content">
 
-        <article class="card reveal" data-category="analyse" data-search="étranger albert camus absurdité explication visuelle philosophie">
-          <a class="card-image" href="https://youtu.be/16lhny_zAwA" target="_blank" rel="noopener">
-            <img src="images/etranger.png" alt="L'Étranger d'Albert Camus">
-            <span class="play">▶</span>
-          </a>
-          <div class="card-body">
-            <span class="tag">ANALYSE</span>
-            <h3>L'Étranger — Albert Camus</h3>
-            <p>Une explication visuelle de l'œuvre, de Meursault et de l'absurde.</p>
-            <a class="watch" href="https://youtu.be/16lhny_zAwA" target="_blank" rel="noopener">Voir la vidéo <span>↗</span></a>
-          </div>
-        </article>
+<img src="images/logo-transparent.png"
+     alt="Logo Le Style Littéraire"
+     class="hero-logo">
 
-        <article class="card reveal" data-category="analyse" data-search="madame bovary gustave flaubert emma analyse personnage">
-          <a class="card-image" href="https://youtu.be/FGR2ZjxPOCg" target="_blank" rel="noopener">
-            <img src="images/madame-bovary.png" alt="Madame Bovary de Gustave Flaubert">
-            <span class="play">▶</span>
-          </a>
-          <div class="card-body">
-            <span class="tag">ANALYSE</span>
-            <h3>Madame Bovary</h3>
-            <p>Analyse du personnage d'Emma et de ses rêves face à la réalité.</p>
-            <a class="watch" href="https://youtu.be/FGR2ZjxPOCg" target="_blank" rel="noopener">Voir la vidéo <span>↗</span></a>
-          </div>
-        </article>
-      </div>
+<div class="small-title">
+LIRE • COMPRENDRE • RESSENTIR
+</div>
 
-      <div class="empty" id="emptyState" hidden>Aucune œuvre ne correspond à votre recherche.</div>
-    </section>
+<h1>
+Le Style<br>
+<span>Littéraire</span>
+</h1>
 
-    <section class="search-section section" id="recherche">
-      <div class="search-box">
-        <div class="section-kicker">03 — EXPLORER</div>
-        <h2>Rechercher une <em>œuvre</em></h2>
-        <p>Écrivez un titre, un auteur, un mouvement ou un mot-clé.</p>
-        <div class="search-field">
-          <span>⌕</span>
-          <input id="searchInput" type="search" placeholder="Ex. Camus, Zola, Emma..." autocomplete="off">
-          <button id="clearSearch" type="button" aria-label="Effacer la recherche">×</button>
-        </div>
-        <div class="search-result" id="searchResult">Toutes les œuvres sont affichées.</div>
-      </div>
-    </section>
+<p>
+Romans, poésie, résumés et explications littéraires.
+Découvrez la littérature autrement.
+</p>
 
-    <section class="categories section" id="romans">
-      <div class="category-panel">
-        <span class="number">01</span>
-        <div><span class="tag">ROMANS</span><h2>Les grandes histoires.</h2></div>
-        <a href="#bibliotheque" class="circle-link">→</a>
-      </div>
-      <div class="category-panel" id="poesie">
-        <span class="number">02</span>
-        <div><span class="tag">POÉSIE</span><h2>Les mots qui restent.</h2></div>
-        <a href="#bibliotheque" class="circle-link">→</a>
-      </div>
-      <div class="category-panel" id="analyses">
-        <span class="number">03</span>
-        <div><span class="tag">ANALYSES</span><h2>Lire au-delà du texte.</h2></div>
-        <a href="#bibliotheque" class="circle-link">→</a>
-      </div>
-    </section>
+<div class="buttons">
 
-    <section class="quote section">
-      <div class="quote-mark">“</div>
-      <blockquote>Un livre est une fenêtre par laquelle on s'évade.</blockquote>
-      <p>— Le Style Littéraire</p>
-    </section>
+<a class="button" href="#romans">
+Découvrir
+</a>
 
-    <section class="community section" id="communaute">
-      <div>
-        <div class="section-kicker">04 — COMMUNAUTÉ</div>
-        <h2>La littérature se<br><em>partage.</em></h2>
-      </div>
-      <div class="community-copy">
-        <p>Retrouvez les nouvelles créations, analyses et résumés sur la chaîne YouTube.</p>
-        <a class="btn btn-primary" href="https://www.youtube.com/" target="_blank" rel="noopener">Visiter YouTube ↗</a>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="footer-brand">
-      <img src="images/logo-transparent.png" alt="Logo">
-      <strong>Le Style Littéraire</strong>
-    </div>
-    <p>© 2026 Le Style Littéraire — Lire autrement.</p>
-    <a href="#accueil">Retour en haut ↑</a>
-  </footer>
-
-  <script src="script.js"></script>
-</body>
-</html>
+<a class="button"
+href="https://youtube.com/@lestylelitteraire?si=nArEJFBJf3bS7BQP"
+target="_blank">
+▶ YouTube
+  </a>
